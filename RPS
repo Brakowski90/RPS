@@ -1,0 +1,79 @@
+
+
+
+// Rock destroys scissors.
+// Scissors cut paper.
+// Paper covers rock.
+
+function getUsersChoice (userInput){
+    userInput = userInput.toLowerCase();
+    if(userInput === 'rock'|| userInput === 'paper'|| userInput === 'scissors'){
+        return userInput;
+    } else {
+        console.log('Error: Choose either rock, paper or scissor')
+    }
+};
+
+// console.log(getUsersChoice('rock'));
+// console.log(getUsersChoice('paper'));
+// console.log(getUsersChoice('scissors'));
+
+
+
+ function getComputerChoice(){
+     var rockPaperScissors = Math.floor(Math.random()* 3);
+     if (rockPaperScissors === 0){
+        return ('rock')
+     }
+     else if (rockPaperScissors === 1){
+        return ('paper')
+     } else {
+        return ('scissors')
+     }
+     
+ }
+
+// console.log(getComputerChoice());
+
+
+ // Step 7
+function determineWinner(userChoice, computerChoice) {
+    // Check for a tie
+    if (userChoice === computerChoice) {
+      return "It's a tie!";
+    }
+    
+    // Step 8
+    if (userChoice === 'rock') {
+      if (computerChoice === 'paper') {
+        return "Computer wins!";
+      } else {
+        return "User wins!";
+      }
+    } else if (userChoice === 'paper') {
+      if (computerChoice === 'scissors') {
+        return "Computer wins!";
+      } else {
+        return "You win!";
+      }
+    } else if (userChoice === 'scissors') {
+      if (computerChoice === 'rock') {
+        return "Computer wins!";
+      } else {
+        return "User wins!";
+      }
+    }
+  }
+  // Step 12
+  function playGame(){
+    const userChoice = getUsersChoice('paper');
+    const computerChoice = getComputerChoice ();
+
+    console.log('Your choice:', userChoice);
+    console.log( 'Computer choice:', computerChoice);
+    console.log (determineWinner(userChoice, computerChoice));
+  }
+  
+ 
+
+playGame();
